@@ -48,17 +48,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if valueFromModel == 1 {
                 gameSituation = false
                 print("1 kazandi")
-                return
+                playAction.makeAlert(title: "Bravo", message: "Player 1 kazandi", vc: self, imageFromM: cell.imageViewCell)
+                cell.imageViewCell.image = image.defImage
             }
             if valueFromModel == 2 {
                 gameSituation = false
                 print("2 kazandi")
+                playAction.makeAlert(title: "Bravo", message: "Player 2 kazandi", vc: self, imageFromM: cell.imageViewCell)
+                cell.imageViewCell.image = image.defImage
             }
             
         }
       
         
     }
+    
+    
+
+
 
 }
 

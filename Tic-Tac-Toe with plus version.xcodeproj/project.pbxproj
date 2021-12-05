@@ -62,18 +62,42 @@
 		E119A0B0275C289000289FC3 /* Tic-Tac-Toe with plus version */ = {
 			isa = PBXGroup;
 			children = (
+				E119A0CD275C37EA00289FC3 /* Storyboard */,
+				E119A0CC275C37D500289FC3 /* View Controller */,
+				E119A0CB275C37B100289FC3 /* Models */,
 				E119A0B1275C289100289FC3 /* AppDelegate.swift */,
 				E119A0B3275C289100289FC3 /* SceneDelegate.swift */,
-				E119A0B5275C289100289FC3 /* ViewController.swift */,
-				E119A0B7275C289100289FC3 /* Main.storyboard */,
 				E119A0BA275C289200289FC3 /* Assets.xcassets */,
-				E119A0BC275C289200289FC3 /* LaunchScreen.storyboard */,
 				E119A0BF275C289200289FC3 /* Info.plist */,
-				E119A0C5275C29DA00289FC3 /* TableOfNumber.swift */,
-				E119A0C7275C2AB600289FC3 /* PlayCollectionViewCell.swift */,
-				E119A0C9275C2E5400289FC3 /* PlayActions.swift */,
 			);
 			path = "Tic-Tac-Toe with plus version";
+			sourceTree = "<group>";
+		};
+		E119A0CB275C37B100289FC3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E119A0C5275C29DA00289FC3 /* TableOfNumber.swift */,
+				E119A0C9275C2E5400289FC3 /* PlayActions.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E119A0CC275C37D500289FC3 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E119A0B5275C289100289FC3 /* ViewController.swift */,
+				E119A0C7275C2AB600289FC3 /* PlayCollectionViewCell.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		E119A0CD275C37EA00289FC3 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E119A0B7275C289100289FC3 /* Main.storyboard */,
+				E119A0BC275C289200289FC3 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

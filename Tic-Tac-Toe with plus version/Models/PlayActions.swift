@@ -48,4 +48,22 @@ class PlayActions {
         return 0
     }
     
+    
+    func makeAlert (title : String, message: String, vc: ViewController,imageFromM : UIImageView) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default) { result in
+            self.reloadPlay()
+            imageFromM.image = self.image.defImage
+        }
+        alert.addAction(okButton)
+        vc.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func reloadPlay(){
+        tableList = [0,0,0,0,0,0,0,0,0]
+        
+        
+    }
+    
 }

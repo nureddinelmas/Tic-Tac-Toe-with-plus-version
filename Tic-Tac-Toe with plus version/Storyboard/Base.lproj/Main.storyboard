@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pi8-ci-SIm">
-                                <rect key="frame" x="5" y="49" width="404" height="808"/>
+                                <rect key="frame" x="5" y="144" width="404" height="713"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pRB-ft-rQq">
                                     <size key="itemSize" width="128" height="128"/>
@@ -59,10 +59,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pi8-ci-SIm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="GAw-nj-Nk5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pi8-ci-SIm" secondAttribute="bottom" constant="5" id="V19-c9-S6T"/>
                             <constraint firstItem="pi8-ci-SIm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="XJb-Gu-MbK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pi8-ci-SIm" secondAttribute="trailing" constant="5" id="saK-Js-SJs"/>
+                            <constraint firstItem="pi8-ci-SIm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="uWG-IY-mne"/>
                         </constraints>
                     </view>
                     <connections>
