@@ -48,13 +48,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if valueFromModel == 1 {
                 gameSituation = false
                 print("1 kazandi")
-                playAction.makeAlert(title: "Bravo", message: "Player 1 kazandi", vc: self, imageFromM: cell.imageViewCell)
+                makeAlert(title: "Bravo", message: "Player 1 kazandi")
                 cell.imageViewCell.image = image.defImage
             }
             if valueFromModel == 2 {
                 gameSituation = false
                 print("2 kazandi")
-                playAction.makeAlert(title: "Bravo", message: "Player 2 kazandi", vc: self, imageFromM: cell.imageViewCell)
+                makeAlert(title: "Bravo", message: "Player 2 kazandi")
                 cell.imageViewCell.image = image.defImage
             }
             
@@ -64,6 +64,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
+    func makeAlert (title : String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default) { result in
+            self.playAction.reloadPlay()
+            self.playCollectionView.reloadData()
+        }
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
 
 
 
