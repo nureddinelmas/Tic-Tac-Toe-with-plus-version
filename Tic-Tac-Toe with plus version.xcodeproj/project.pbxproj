@@ -21,6 +21,7 @@
 		E119A17A275FD16900289FC3 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A179275FD16900289FC3 /* Functions.swift */; };
 		E119A17C276011CF00289FC3 /* PlayActionsFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A17B276011CF00289FC3 /* PlayActionsFive.swift */; };
 		E119A17E27602C6300289FC3 /* PlayActionsSeven.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A17D27602C6300289FC3 /* PlayActionsSeven.swift */; };
+		E119A1802760DEA500289FC3 /* PlayIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A17F2760DEA500289FC3 /* PlayIntroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E119A179275FD16900289FC3 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		E119A17B276011CF00289FC3 /* PlayActionsFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayActionsFive.swift; sourceTree = "<group>"; };
 		E119A17D27602C6300289FC3 /* PlayActionsSeven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayActionsSeven.swift; sourceTree = "<group>"; };
+		E119A17F2760DEA500289FC3 /* PlayIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayIntroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				E119A0B5275C289100289FC3 /* ViewController.swift */,
 				E119A0C7275C2AB600289FC3 /* PlayCollectionViewCell.swift */,
+				E119A17F2760DEA500289FC3 /* PlayIntroViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				E119A0CA275C2E5400289FC3 /* PlayActionsThree.swift in Sources */,
 				E119A0B6275C289100289FC3 /* ViewController.swift in Sources */,
 				E119A17A275FD16900289FC3 /* Functions.swift in Sources */,
+				E119A1802760DEA500289FC3 /* PlayIntroViewController.swift in Sources */,
 				E119A0B2275C289100289FC3 /* AppDelegate.swift in Sources */,
 				E119A0D1275C98FF00289FC3 /* Player.swift in Sources */,
 				E119A0B4275C289100289FC3 /* SceneDelegate.swift in Sources */,

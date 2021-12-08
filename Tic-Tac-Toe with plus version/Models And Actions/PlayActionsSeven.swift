@@ -54,12 +54,13 @@ class PlayActionsSeven: Functions {
 
     func reloadPlay(){
      
-        fillTable()
+//        fillTable()
         gamePlan.positionsCell = []
     }
     
-    func fillTable(){
-        for _ in 0...48 {
+    func fillTable(size: Int){
+        tableList.removeAll()
+        for _ in 0...(size*size-1) {
             tableList.append(0)
         }
     }

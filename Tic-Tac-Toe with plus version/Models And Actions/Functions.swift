@@ -11,7 +11,7 @@ import UIKit
 protocol Functions {
     func enterValue(index : Int, imageFromModel : UIImageView)
     func compare() -> Int
-    func fillTable()
+    func fillTable(size : Int)
 }
 
 

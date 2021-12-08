@@ -19,17 +19,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var playActionFive = PlayActionsFive()
     var playActionSeven = PlayActionsSeven()
     var image = Images()
-    var gamePlan = GamePlan()
+    var gamePlan = GamePlan(playSize: 5, rate: 4, positionsCell: [])
 
+    var valueFromModel = 0
     @IBOutlet weak var playCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gamePlan.playSize = 7
-        playActionThree.fillTable()
-        playActionFive.fillTable()
-        playActionSeven.fillTable()
+        gamePlan.playSize = 3
+        playActionThree.fillTable(size: gamePlan.playSize)
+        playActionFive.fillTable(size: gamePlan.playSize)
+        playActionSeven.fillTable(size: gamePlan.playSize)
 
         
         if player1.name == "" {
@@ -74,7 +75,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = playCollectionView.cellForItem(at: indexPath) as! PlayCollectionViewCell
         
         if cell.imageViewCell.image == image.defImage {
-            var valueFromModel = 0
+            
             switch gamePlan.playSize{
             case 3: self.playActionThree.enterValue(index: indexPath.row, imageFromModel: cell.imageViewCell)
                 valueFromModel = self.playActionThree.compare()
@@ -85,9 +86,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             default: self.playActionThree.enterValue(index: indexPath.row, imageFromModel: cell.imageViewCell)
                 valueFromModel = self.playActionThree.compare()
             }
-
-
-  
             if valueFromModel == 1 {
                 gameSituation = false
                 makeAlert(message: "\(player1.name) Won!!")
@@ -118,13 +116,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let alert = UIAlertController(title: "😃 Game Over 😃", message: message, preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default) { result in
-            self.playActionThree.reloadPlay()
-            self.playActionFive.reloadPlay()
-            self.playActionSeven.reloadPlay()
             self.gamePlan.positionsCell = []
             self.playCollectionView.reloadData()
             self.player1.reloadPlayer()
             self.player2.reloadPlayer()
+            self.valueFromModel = 0
+            self.playActionFive.fillTable(size: self.gamePlan.playSize)
+            self.playActionThree.fillTable(size: self.gamePlan.playSize)
+            self.playActionSeven.fillTable(size: self.gamePlan.playSize)
         }
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)

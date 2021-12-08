@@ -52,13 +52,13 @@ class PlayActionsThree: Functions {
         return 0
     }
 
-    func reloadPlay(){
-        fillTable()
-    }
+//    func reloadPlay(){
+//        fillTable()
+//    }
     
-    func fillTable() {
+    func fillTable(size: Int) {
         tableList.removeAll()
-        for _ in 0...(gamePlan.playSize*gamePlan.playSize-1) {
+        for _ in 0...(size*size-1) {
             tableList.append(0)
         }
     }

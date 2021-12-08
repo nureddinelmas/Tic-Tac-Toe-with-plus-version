@@ -13,7 +13,7 @@ class PlayActionsFive: Functions {
 
     
     var image = Images()
-    var gamePlan = GamePlan()
+    var gamePlan : GamePlan?
     var play1Activ = true
     var tableList : [Int] = []
     
@@ -51,13 +51,10 @@ class PlayActionsFive: Functions {
         return 0
     }
 
-    func reloadPlay(){
-        fillTable()
-        gamePlan.positionsCell = []
-    }
     
-    func fillTable() {
-        for _ in 0...24 {
+    func fillTable(size : Int) {
+        tableList.removeAll()
+        for _ in 0...(size*size-1) {
             tableList.append(0)
         }
     }
