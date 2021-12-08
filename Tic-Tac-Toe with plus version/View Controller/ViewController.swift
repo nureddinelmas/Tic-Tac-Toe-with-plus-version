@@ -7,27 +7,58 @@
 
 import UIKit
 
-let reuseIdentifier = "reuseIdentifier"
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+    private let reuseIdentifier = "reuseIdentifier"
+    var player1 = Player()
+    var player2 = Player()
 
     var gameSituation = true
     var player1Activ = true
-    var board = Board()
-    var playAction = PlayActions()
-    var image = Images(xImage: UIImage(named: "x")!, oImage: UIImage(named: "o")!, defImage: UIImage(named: "kvadrat")!)
-    
+    var playActionThree = PlayActionsThree()
+    var playActionFive = PlayActionsFive()
+    var playActionSeven = PlayActionsSeven()
+    var image = Images()
+    var gamePlan = GamePlan()
 
     @IBOutlet weak var playCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+        
+        gamePlan.playSize = 7
+        playActionThree.fillTable()
+        playActionFive.fillTable()
+        playActionSeven.fillTable()
 
+        
+        if player1.name == "" {
+            player1.name = "First Player"
+        }
+        if player2.name == "" {
+            player2.name = "Second Player"
+        }
+        
+        let flowlayout = UICollectionViewFlowLayout()
+
+        flowlayout.scrollDirection = .vertical
+        flowlayout.minimumLineSpacing = 1
+        flowlayout.minimumInteritemSpacing = 1
+        flowlayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowlayout.itemSize = CGSize(width: (view.frame.size.width/gamePlan.rate), height: (view.frame.size.width/gamePlan.rate))
+
+        playCollectionView.collectionViewLayout = flowlayout
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  playAction.tableCount
+        return gamePlan.playSize * gamePlan.playSize
     }
+    
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (Int(collectionView.bounds.width) - 5) / gamePlan.playSize, height: (Int(collectionView.bounds.size.height) - 5) / gamePlan.playSize)
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PlayCollectionViewCell
@@ -37,25 +68,44 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
+  
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = playCollectionView.cellForItem(at: indexPath) as! PlayCollectionViewCell
+        
         if cell.imageViewCell.image == image.defImage {
-            
-            playAction.enterValue(index: indexPath.row, imageFromModel: cell.imageViewCell)
-            
-           let valueFromModel = playAction.compare()
-            
+            var valueFromModel = 0
+            switch gamePlan.playSize{
+            case 3: self.playActionThree.enterValue(index: indexPath.row, imageFromModel: cell.imageViewCell)
+                valueFromModel = self.playActionThree.compare()
+            case 5: self.playActionFive.enterValue(index: indexPath.row, imageFromModel: cell.imageViewCell)
+                valueFromModel = self.playActionFive.compare()
+            case 7: self.playActionSeven.enterValue(index: indexPath.row, imageFromModel: cell.imageViewCell)
+                valueFromModel = self.playActionSeven.compare()
+            default: self.playActionThree.enterValue(index: indexPath.row, imageFromModel: cell.imageViewCell)
+                valueFromModel = self.playActionThree.compare()
+            }
+
+
+  
             if valueFromModel == 1 {
                 gameSituation = false
-                print("1 kazandi")
-                makeAlert(title: "Bravo", message: "Player 1 kazandi")
+                makeAlert(message: "\(player1.name) Won!!")
                 cell.imageViewCell.image = image.defImage
             }
             if valueFromModel == 2 {
                 gameSituation = false
-                print("2 kazandi")
-                makeAlert(title: "Bravo", message: "Player 2 kazandi")
+                makeAlert(message: "\(player2.name) Won!!")
                 cell.imageViewCell.image = image.defImage
+
+            }
+         
+            gamePlan.positionsCell.append(indexPath.row)
+            
+            if gamePlan.positionsCell.count == Int(gamePlan.playSize)*Int(gamePlan.playSize){
+                if !player1.playerWin && !player2.playerWin {
+                    makeAlert(message: "It is a Draw")
+                }
             }
             
         }
@@ -64,12 +114,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
-    func makeAlert (title : String, message: String) {
+    func makeAlert (message: String) {
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "😃 Game Over 😃", message: message, preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default) { result in
-            self.playAction.reloadPlay()
+            self.playActionThree.reloadPlay()
+            self.playActionFive.reloadPlay()
+            self.playActionSeven.reloadPlay()
+            self.gamePlan.positionsCell = []
             self.playCollectionView.reloadData()
+            self.player1.reloadPlayer()
+            self.player2.reloadPlayer()
         }
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)

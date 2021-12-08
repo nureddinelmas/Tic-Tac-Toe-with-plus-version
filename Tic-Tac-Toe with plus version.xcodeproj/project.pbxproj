@@ -13,9 +13,14 @@
 		E119A0B9275C289100289FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E119A0B7275C289100289FC3 /* Main.storyboard */; };
 		E119A0BB275C289200289FC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E119A0BA275C289200289FC3 /* Assets.xcassets */; };
 		E119A0BE275C289200289FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E119A0BC275C289200289FC3 /* LaunchScreen.storyboard */; };
-		E119A0C6275C29DA00289FC3 /* TableOfNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A0C5275C29DA00289FC3 /* TableOfNumber.swift */; };
+		E119A0C6275C29DA00289FC3 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A0C5275C29DA00289FC3 /* Images.swift */; };
 		E119A0C8275C2AB600289FC3 /* PlayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A0C7275C2AB600289FC3 /* PlayCollectionViewCell.swift */; };
-		E119A0CA275C2E5400289FC3 /* PlayActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A0C9275C2E5400289FC3 /* PlayActions.swift */; };
+		E119A0CA275C2E5400289FC3 /* PlayActionsThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A0C9275C2E5400289FC3 /* PlayActionsThree.swift */; };
+		E119A0D1275C98FF00289FC3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A0D0275C98FF00289FC3 /* Player.swift */; };
+		E119A176275FC9A600289FC3 /* GamePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A175275FC9A500289FC3 /* GamePlan.swift */; };
+		E119A17A275FD16900289FC3 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A179275FD16900289FC3 /* Functions.swift */; };
+		E119A17C276011CF00289FC3 /* PlayActionsFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A17B276011CF00289FC3 /* PlayActionsFive.swift */; };
+		E119A17E27602C6300289FC3 /* PlayActionsSeven.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119A17D27602C6300289FC3 /* PlayActionsSeven.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +32,14 @@
 		E119A0BA275C289200289FC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E119A0BD275C289200289FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E119A0BF275C289200289FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E119A0C5275C29DA00289FC3 /* TableOfNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfNumber.swift; sourceTree = "<group>"; };
+		E119A0C5275C29DA00289FC3 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		E119A0C7275C2AB600289FC3 /* PlayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCollectionViewCell.swift; sourceTree = "<group>"; };
-		E119A0C9275C2E5400289FC3 /* PlayActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayActions.swift; sourceTree = "<group>"; };
+		E119A0C9275C2E5400289FC3 /* PlayActionsThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayActionsThree.swift; sourceTree = "<group>"; };
+		E119A0D0275C98FF00289FC3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		E119A175275FC9A500289FC3 /* GamePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlan.swift; sourceTree = "<group>"; };
+		E119A179275FD16900289FC3 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		E119A17B276011CF00289FC3 /* PlayActionsFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayActionsFive.swift; sourceTree = "<group>"; };
+		E119A17D27602C6300289FC3 /* PlayActionsSeven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayActionsSeven.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +74,7 @@
 			children = (
 				E119A0CD275C37EA00289FC3 /* Storyboard */,
 				E119A0CC275C37D500289FC3 /* View Controller */,
-				E119A0CB275C37B100289FC3 /* Models */,
+				E119A0CB275C37B100289FC3 /* Models And Actions */,
 				E119A0B1275C289100289FC3 /* AppDelegate.swift */,
 				E119A0B3275C289100289FC3 /* SceneDelegate.swift */,
 				E119A0BA275C289200289FC3 /* Assets.xcassets */,
@@ -73,13 +83,18 @@
 			path = "Tic-Tac-Toe with plus version";
 			sourceTree = "<group>";
 		};
-		E119A0CB275C37B100289FC3 /* Models */ = {
+		E119A0CB275C37B100289FC3 /* Models And Actions */ = {
 			isa = PBXGroup;
 			children = (
-				E119A0C5275C29DA00289FC3 /* TableOfNumber.swift */,
-				E119A0C9275C2E5400289FC3 /* PlayActions.swift */,
+				E119A0C5275C29DA00289FC3 /* Images.swift */,
+				E119A0D0275C98FF00289FC3 /* Player.swift */,
+				E119A175275FC9A500289FC3 /* GamePlan.swift */,
+				E119A179275FD16900289FC3 /* Functions.swift */,
+				E119A0C9275C2E5400289FC3 /* PlayActionsThree.swift */,
+				E119A17B276011CF00289FC3 /* PlayActionsFive.swift */,
+				E119A17D27602C6300289FC3 /* PlayActionsSeven.swift */,
 			);
-			path = Models;
+			path = "Models And Actions";
 			sourceTree = "<group>";
 		};
 		E119A0CC275C37D500289FC3 /* View Controller */ = {
@@ -171,12 +186,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E119A0C6275C29DA00289FC3 /* TableOfNumber.swift in Sources */,
-				E119A0CA275C2E5400289FC3 /* PlayActions.swift in Sources */,
+				E119A17E27602C6300289FC3 /* PlayActionsSeven.swift in Sources */,
+				E119A0C6275C29DA00289FC3 /* Images.swift in Sources */,
+				E119A0CA275C2E5400289FC3 /* PlayActionsThree.swift in Sources */,
 				E119A0B6275C289100289FC3 /* ViewController.swift in Sources */,
+				E119A17A275FD16900289FC3 /* Functions.swift in Sources */,
 				E119A0B2275C289100289FC3 /* AppDelegate.swift in Sources */,
+				E119A0D1275C98FF00289FC3 /* Player.swift in Sources */,
 				E119A0B4275C289100289FC3 /* SceneDelegate.swift in Sources */,
+				E119A176275FC9A600289FC3 /* GamePlan.swift in Sources */,
 				E119A0C8275C2AB600289FC3 /* PlayCollectionViewCell.swift in Sources */,
+				E119A17C276011CF00289FC3 /* PlayActionsFive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
