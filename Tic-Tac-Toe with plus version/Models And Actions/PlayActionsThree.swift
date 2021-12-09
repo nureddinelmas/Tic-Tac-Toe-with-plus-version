@@ -26,11 +26,11 @@ class PlayActionsThree: Functions {
     }
 
     func enterValue(index : Int, imageFromModel : UIImageView) {
-                   
                  if play1Activ {
                      tableList[index] = 1
                      play1Activ = false
                      imageFromModel.image = image.oImage
+                     
                  }else {
                      tableList[index] = 2
                      play1Activ = true

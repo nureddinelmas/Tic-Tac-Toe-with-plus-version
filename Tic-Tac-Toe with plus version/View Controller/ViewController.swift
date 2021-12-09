@@ -20,25 +20,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var playActionSeven = PlayActionsSeven()
     var image = Images()
     var gamePlan = GamePlan(playSize: 5, rate: 4, positionsCell: [])
+    var firstScore = 0
+    var secondScore = 0
 
+    @IBOutlet weak var secondPlayerText: UILabel!
     var valueFromModel = 0
     @IBOutlet weak var playCollectionView: UICollectionView!
+    @IBOutlet weak var firstPlayerText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gamePlan.playSize = 3
         playActionThree.fillTable(size: gamePlan.playSize)
         playActionFive.fillTable(size: gamePlan.playSize)
         playActionSeven.fillTable(size: gamePlan.playSize)
-
         
-        if player1.name == "" {
-            player1.name = "First Player"
-        }
-        if player2.name == "" {
-            player2.name = "Second Player"
-        }
+        firstPlayerText.text = "\(player1.name.uppercased()) : \(firstScore)"
+        secondPlayerText.text = "\(player2.name.uppercased()) : \(secondScore)"
         
         let flowlayout = UICollectionViewFlowLayout()
 
@@ -57,7 +55,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (Int(collectionView.bounds.width) - 5) / gamePlan.playSize, height: (Int(collectionView.bounds.size.height) - 5) / gamePlan.playSize)
+        return CGSize(width: (Int(collectionView.bounds.width)-5) / gamePlan.playSize, height: (Int(collectionView.bounds.size.height)-5) / gamePlan.playSize)
     }
     
     
@@ -87,14 +85,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 valueFromModel = self.playActionThree.compare()
             }
             if valueFromModel == 1 {
+                firstScore += 1
                 gameSituation = false
-                makeAlert(message: "\(player1.name) Won!!")
+                makeAlert(message: "\(player1.name.uppercased()) Won!!")
                 cell.imageViewCell.image = image.defImage
+                firstPlayerText.text = "\(player1.name.uppercased()) : \(firstScore)"
             }
             if valueFromModel == 2 {
+                secondScore += 1
                 gameSituation = false
-                makeAlert(message: "\(player2.name) Won!!")
+                makeAlert(message: "\(player2.name.uppercased()) Won!!")
                 cell.imageViewCell.image = image.defImage
+                secondPlayerText.text = "\(player2.name.uppercased()) : \(secondScore)"
 
             }
          
@@ -105,10 +107,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     makeAlert(message: "It is a Draw")
                 }
             }
-            
         }
-      
-        
     }
     
     

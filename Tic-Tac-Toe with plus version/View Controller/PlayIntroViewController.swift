@@ -19,7 +19,7 @@ class PlayIntroViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var pickerViewRow: UIPickerView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var secondPlayerText: UITextField!
-    var selectedSize = 0
+    var selectedSize = 3
     private let size = ["3 x 3","5 x 5","7 x 7"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +43,7 @@ class PlayIntroViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         case "7 x 7" : selectedSize = 7
             imageView.image = UIImage(named: "7x7")
         default: selectedSize = 3
+            imageView.image = UIImage(named: "3x3")
         }
     }
     
@@ -64,7 +65,7 @@ class PlayIntroViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         guard let firstPlayer = firstPlayerText.text, let secondPlayer = secondPlayerText.text else { return }
         if segue.identifier == introToPlay {
             let destinationVC = segue.destination as! ViewController
-            destinationVC.gamePlan.playSize = 4
+            destinationVC.gamePlan.playSize = selectedSize
             destinationVC.player1.name = firstPlayer
             destinationVC.player2.name = secondPlayer
         }

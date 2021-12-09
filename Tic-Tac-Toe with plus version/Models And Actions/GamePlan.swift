@@ -11,6 +11,6 @@ import UIKit
 
 struct GamePlan{
     var playSize : Int = 3
-    var rate : CGFloat = 4
+    var rate : CGFloat = 3
     var positionsCell : [Int] = []
 }
