@@ -9,22 +9,24 @@ import UIKit
 
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
-    private let reuseIdentifier = "reuseIdentifier"
+
     var player1 = Player()
     var player2 = Player()
-
-    var gameSituation = true
-    var player1Activ = true
     var playActionThree = PlayActionsThree()
     var playActionFive = PlayActionsFive()
     var playActionSeven = PlayActionsSeven()
     var image = Images()
     var gamePlan = GamePlan(playSize: 5, rate: 4, positionsCell: [])
+    
+    // Variables
+    private let reuseIdentifier = "reuseIdentifier"
+    var gameSituation = true
+    var player1Activ = true
     var firstScore = 0
     var secondScore = 0
-
-    @IBOutlet weak var secondPlayerText: UILabel!
     var valueFromModel = 0
+    
+    @IBOutlet weak var secondPlayerText: UILabel!
     @IBOutlet weak var playCollectionView: UICollectionView!
     @IBOutlet weak var firstPlayerText: UILabel!
     
@@ -73,7 +75,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = playCollectionView.cellForItem(at: indexPath) as! PlayCollectionViewCell
         
         if cell.imageViewCell.image == image.defImage {
-            
+           
             switch gamePlan.playSize{
             case 3: self.playActionThree.enterValue(index: indexPath.row, imageFromModel: cell.imageViewCell)
                 valueFromModel = self.playActionThree.compare()
@@ -87,16 +89,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if valueFromModel == 1 {
                 firstScore += 1
                 gameSituation = false
-                makeAlert(message: "\(player1.name.uppercased()) Won!!")
-                cell.imageViewCell.image = image.defImage
                 firstPlayerText.text = "\(player1.name.uppercased()) : \(firstScore)"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.makeAlert(message: "\(self.player1.name.uppercased()) Won!!")
+                }
+                
             }
             if valueFromModel == 2 {
                 secondScore += 1
                 gameSituation = false
-                makeAlert(message: "\(player2.name.uppercased()) Won!!")
-                cell.imageViewCell.image = image.defImage
                 secondPlayerText.text = "\(player2.name.uppercased()) : \(secondScore)"
+                makeAlert(message: "\(player2.name.uppercased()) Won!!")
 
             }
          
