@@ -16,7 +16,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var playActionFive = PlayActionsFive()
     var playActionSeven = PlayActionsSeven()
     var image = Images()
-    var gamePlan = GamePlan(playSize: 5, rate: 4, positionsCell: [])
+    var gamePlan = GamePlan()
     
     // Variables
     private let reuseIdentifier = "reuseIdentifier"
@@ -25,7 +25,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var firstScore = 0
     var secondScore = 0
     var valueFromModel = 0
+    var selectedTurn = true
     
+    @IBOutlet weak var showLabel: UILabel!
     @IBOutlet weak var secondPlayerText: UILabel!
     @IBOutlet weak var playCollectionView: UICollectionView!
     @IBOutlet weak var firstPlayerText: UILabel!
@@ -74,8 +76,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = playCollectionView.cellForItem(at: indexPath) as! PlayCollectionViewCell
         
+        
+
+        
         if cell.imageViewCell.image == image.defImage {
-           
+            
+            if selectedTurn {
+                self.showLabel.text = "\(player1.name) is playing now"
+                selectedTurn = false
+            }else{
+                self.showLabel.text = "\(player2.name) is playing now"
+                selectedTurn = true
+            }
+            
             switch gamePlan.playSize{
             case 3: self.playActionThree.enterValue(index: indexPath.row, imageFromModel: cell.imageViewCell)
                 valueFromModel = self.playActionThree.compare()
@@ -86,13 +99,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             default: self.playActionThree.enterValue(index: indexPath.row, imageFromModel: cell.imageViewCell)
                 valueFromModel = self.playActionThree.compare()
             }
+            print(valueFromModel)
             if valueFromModel == 1 {
                 firstScore += 1
                 gameSituation = false
                 firstPlayerText.text = "\(player1.name.uppercased()) : \(firstScore)"
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.makeAlert(message: "\(self.player1.name.uppercased()) Won!!")
-                }
+                makeAlert(message: "\(self.player1.name.uppercased()) Won!!")
                 
             }
             if valueFromModel == 2 {
@@ -104,12 +116,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
          
             gamePlan.positionsCell.append(indexPath.row)
-            
-            if gamePlan.positionsCell.count == Int(gamePlan.playSize)*Int(gamePlan.playSize){
+            // burayi duzelt
+            print("gamePlan.positionsCell.count -> \(gamePlan.positionsCell.count)")
+            print("Int(gamePlan.playSize)*Int(gamePlan.playSize) -> \(Int(gamePlan.playSize)*Int(gamePlan.playSize))")
+            if gamePlan.positionsCell.count == (Int(gamePlan.playSize)*Int(gamePlan.playSize)){
                 if !player1.playerWin && !player2.playerWin {
                     makeAlert(message: "It is a Draw")
                 }
             }
+          
         }
     }
     
@@ -131,8 +146,5 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.present(alert, animated: true, completion: nil)
         
     }
-
-
-
 }
 
