@@ -74,11 +74,10 @@
 		E119A0B0275C289000289FC3 /* Tic-Tac-Toe with plus version */ = {
 			isa = PBXGroup;
 			children = (
+				E119A19C2762B9BF00289FC3 /* Delegates */,
 				E119A0CD275C37EA00289FC3 /* Storyboard */,
 				E119A0CC275C37D500289FC3 /* View Controller */,
 				E119A0CB275C37B100289FC3 /* Models And Actions */,
-				E119A0B1275C289100289FC3 /* AppDelegate.swift */,
-				E119A0B3275C289100289FC3 /* SceneDelegate.swift */,
 				E119A0BA275C289200289FC3 /* Assets.xcassets */,
 				E119A0BF275C289200289FC3 /* Info.plist */,
 			);
@@ -116,6 +115,15 @@
 				E119A0BC275C289200289FC3 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E119A19C2762B9BF00289FC3 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E119A0B3275C289100289FC3 /* SceneDelegate.swift */,
+				E119A0B1275C289100289FC3 /* AppDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
